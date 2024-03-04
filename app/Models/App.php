@@ -21,5 +21,8 @@ class App extends Model
     public function user() {
         return $this->belongsTo(User::class,'id_users');
     }
+    public function stamp() {
+        return $this->hasMany(Stamp::class);
+    }
  
 }

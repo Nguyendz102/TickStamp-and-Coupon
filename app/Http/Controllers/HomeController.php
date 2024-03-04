@@ -56,8 +56,8 @@ class HomeController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $generatedImageName = $request->image->storeAs('image' . time() 
-        . '-' . $request->name . '.' 
+        $generatedImageName = $request->image->storeAs('images', 
+        time() . '-' . $request->name . '.' 
         . $request->image->extension(), 'public');
 
          App::where('id', $id)

@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CouponsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StampsController;
+use App\Http\Controllers\StoresController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -74,7 +77,44 @@ Route::get('/logout', [
     LoginController::class,
     'logout'
 ]);
+// Stamp
+Route::get('/stamps', [
+    StampsController::class,
+    'index'
+]);
+Route::get('/create-stamp', [
+    StampsController::class,
+    'create'
+]);
+Route::post('/stamps', [
+    StampsController::class,
+    'store'
+])->name('addstamps');
 
-Route::middleware('auth')->group(function () {
-    // Các route yêu cầu đăng nhập ở đây
-});
+Route::post('/stamps', [
+    StampsController::class,
+    'storeimage'
+])->name('upload');
+
+//Coupon
+Route::get('/coupons', [
+    CouponsController::class,
+    'index'
+]);
+Route::post('/coupons', [
+    CouponsController::class,
+    'store'
+])->name('addcoupon');
+
+Route::get('/create-coupon', [
+    CouponsController::class,
+    'create'
+]);
+
+
+//Store
+Route::get('/stores', [
+    StoresController::class, 
+    'index'
+]);
+
