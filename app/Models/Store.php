@@ -15,4 +15,7 @@ class Store extends Model
         'address',
         'app_id'
     ];
+    public function apps() {
+        return $this->belongsTo(App::class,'app_id');
+    }
 }

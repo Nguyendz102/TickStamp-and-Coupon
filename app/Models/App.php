@@ -24,5 +24,8 @@ class App extends Model
     public function stamp() {
         return $this->hasMany(Stamp::class);
     }
+    public function stores() {
+        return $this->hasMany(Store::class);
+    }
  
 }

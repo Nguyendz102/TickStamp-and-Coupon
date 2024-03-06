@@ -25,7 +25,7 @@
                     <a class="nav-link" href="/stores" >Store</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/#" >Export</a>
+                    <a class="nav-link" href="#" >Export</a>
                 </li>
                 <li class="nav-item" style="margin-left: 1000px">
                     <a class="nav-link" href="/logout" >Đăng Xuất</a>

@@ -117,4 +117,12 @@ Route::get('/stores', [
     StoresController::class, 
     'index'
 ]);
+Route::get('/create-store', [
+    StoresController::class, 
+    'create'
+]);
+Route::post('/stores', [
+    StoresController::class, 
+    'import'
+])->name('postdata');
 
