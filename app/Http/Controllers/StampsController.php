@@ -64,10 +64,7 @@ class StampsController extends Controller
             dd($e->getMessage());
         }
         
-        // Lặp qua mảng image-before và image-after được gửi từ form
-         
-    
-            
+        // Lặp qua mảng image-before và image-after được gửi từ form    
         
     }
     

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CouponsController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StampsController;
@@ -91,7 +92,7 @@ Route::post('/stamps', [
     'store'
 ])->name('addstamps');
 
-Route::post('/stamps', [
+Route::post('/stampss', [
     StampsController::class,
     'storeimage'
 ])->name('upload');
@@ -125,4 +126,14 @@ Route::post('/stores', [
     StoresController::class, 
     'import'
 ])->name('postdata');
+
+//Export
+Route::get('/exports', [
+    ExportController::class, 
+    'index'
+]);
+Route::post('/exports', [
+    ExportController::class, 
+    'exportCouponData'
+])->name('exportCouponData');
 

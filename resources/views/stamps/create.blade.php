@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1 style="text-align: center">Create Stamps</h1>
-<form method="POST" action="/stamps" style="margin: 5%" enctype="multipart/form-data" >
+<form method="POST" action="{{ route('addstamps') }}" style="margin: 5%" enctype="multipart/form-data" >
     @csrf
     {{-- <label  class="form-label">Choose file images</label>
     <input class="form-control" type="file" name="image"> --}}
