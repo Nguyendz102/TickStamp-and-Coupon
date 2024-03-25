@@ -9,10 +9,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
+
 class StoresController extends Controller
 {
     //
     public function index() {
+        
         $storepagi = Store::paginate(10); // Số lượng bản ghi trên mỗi trang là 10, bạn có thể thay đổi nếu cần
         return view('store.index',compact('storepagi'));
     }
@@ -37,9 +39,8 @@ class StoresController extends Controller
         $storeImport->setAppId($request->input('app_id'));
         // Import dữ liệu từ file CSV sử dụng StoreImport
         Excel::import($storeImport, $file);
-
-
         // Chuyển hướng hoặc trả về thông báo thành công
         return redirect('/stores');
     }
+
 }

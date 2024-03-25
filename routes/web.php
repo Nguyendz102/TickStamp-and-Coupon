@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\CouponsController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\StampsController;
 use App\Http\Controllers\StoresController;
 use App\Http\Controllers\UsersController;
@@ -136,4 +138,20 @@ Route::post('/exports', [
     ExportController::class, 
     'exportCouponData'
 ])->name('exportCouponData');
+
+//User Visitor
+Route::get('/customer/{app_id}', [
+    CustomerController::class, 
+    'index'
+])->name('customer.index');
+
+Route::post('/customer', [
+    CustomerController::class, 
+    'store'
+])->name('addcustomer');
+
+Route::get('/tickstamp', [
+    CustomerController::class, 
+    'tick'
+])->name('tickstamp');
 
