@@ -35,9 +35,32 @@
                         <button id="btn2" style="height: 50px; margin: 0; padding: 0;" class="full-width" onclick="showContent(2)">List Coupon</button>
                     </div>
                     <!-- Hai phần nội dung khác nhau -->
-                    <div style="display: flex; flex-grow: 1; margin: 0; border-radius: 5% padding: 0;">
+                    <div style="display: flex; margin: 0; border-radius: 5%; padding: 0;">
                         <div id="content1" style="flex: 1; background-color: #ffff; margin: 0; padding: 0;">
-                            <p>Content 1</p>
+                            @foreach ($imageStamps as $item)
+                            @php
+                                $found = false;
+                                $after_image = null;
+                            @endphp
+                        
+                            @foreach ($customerStamps as $customerStamp)
+                                @if ($item->post_stamp == $customerStamp->count_stamp)
+                                    @php
+                                        $found = true;
+                                        $after_image = $item->after_image;
+                                        break;
+                                    @endphp
+                                @endif
+                            @endforeach
+                        
+                            @if ($found)
+                                <!-- Nếu có trùng khớp, sử dụng trường after_image -->
+                                <img style="width: 50px; height: 50px; margin-right: 10px;border-radius: 100px; margin: 10px" src="{{ asset('storage/' . $after_image) }}" class="img-thumbnail" alt="After">
+                            @else
+                                <!-- Nếu không trùng khớp hoặc không có dữ liệu của customer_stamp, sử dụng trường before_image -->
+                                <img style="width: 50px; height: 50px; margin-right: 10px;border-radius: 100px; margin: 10px" src="{{ asset('storage/' . $item->before_image) }}" class="img-thumbnail" alt="Before">
+                            @endif
+                        @endforeach
                         </div>
                         <div id="content2" style="flex: 1; background-color: #ffff; margin: 0; padding: 0; display: none;">
                             <p>Content 2</p>
